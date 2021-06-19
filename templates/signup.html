@@ -1,0 +1,61 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'signup.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <title>Sign Up</title>
+{% endblock %}
+
+{% block active %}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="/"><strong>Home</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  href="login"><strong>Login</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="signup"><strong>Sign up</strong></>
+        </li>
+
+        </ul>
+        
+        <a href="demo"><button class="btn btn-outline-primary"><strong>Demo Chart</strong></button>
+        </a>
+{% endblock %}
+
+
+{% block alert %}
+    <div class="alert alert-danger" role="alert">
+      {{ message }}
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <form class="mx-auto " id="form" method="POST">{% csrf_token %}
+        <div class="mx-auto" id="head">
+        <Strong id="heading">Sign up to your account</Strong>
+        </div>
+        <div class="mb-5">
+        <label for="exampleInputEmail1" class="form-label"><strong>Email address</strong> </label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="email_">
+
+        </div>
+        <div class="mb-5">
+        <label for="exampleInputPassword1" class="form-label"><strong>Password</strong></label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password_">
+        </div>
+        <div class="mx-auto" id="button">
+        <button type="submit" class="btn btn-primary mx-auto"><strong>Sign up</strong></button>
+        </div>
+
+        <div class="mx-auto" id="bottom">
+            <span>Already have an account? </span><a href="login">Login</a>
+          </div>
+        
+    </form>
+  {% endblock %}

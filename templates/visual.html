@@ -1,0 +1,150 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'visual.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <title>Visual</title>
+{% endblock %}
+
+{% block active %}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="/"><strong>Home</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login"><strong>Login</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="signup"><strong>Sign up</strong></a>
+        </li>
+
+        </ul>
+        
+        <!-- <a href="demo"><button class="btn btn-outline-primary"><strong>Demo Chart</strong></button>
+        </a> -->
+{% endblock %}
+
+
+{% block alert %}
+    <!-- <div class="alert alert-danger" role="alert">
+      {{ message }}
+    </div> -->
+{% endblock %}
+
+{% block content %}
+
+<h1 class="display-3 mx-auto" id="head"><strong> Stock Performance Visualization</strong></h1>
+<div id="left">
+
+    {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+    {% endif %}
+
+
+<form method="POST">{% csrf_token %}
+    <div class="form-group">
+        <select name="stock_name" class="form-select form-select-lg mb-3" id="stock" aria-label=".form-select-lg example">
+            <option selected="None">Select Stock</option>
+            <option value="BAJFINANCE.NS">BAJFINANCE  -NSE</option>
+            <option value="RELIANCE.NS">RELIANCE  -NSE</option>
+            <option value="DIVISLAB.NS">DIVISLAB  -NSE</option>
+            <option value="TATASTEEL.NS">TATASTEEL  -NSE</option>
+            <option value="ONGC.NS">ONGC  -NSE</option>
+            <option value="WIPRO.NS">WIPRO  -NSE</option>
+            <option value="TATAMOTORS.NS">TATAMOTORS  -NSE</option>
+            <option value="CIPLA.NS">CIPLA  -NSE</option>
+            <option value="INDUSINDBK.NS">INDUSINDBK  -NSE</option>
+            <option value="POWERGRID.NS">POWERGRID  -NSE</option>
+            <option value="SHREECEM.NS">SHREECEM  -NSE</option>
+            <option value="BRITANNIA.NS">BRITANNIA  -NSE</option>
+            <option value="INFY.NS">INFY  -NSE</option>
+            <option value="LT.NS">LT  -NSE</option>
+            <option value="HINDUNILVR.NS">HINDUNILVR  -NSE</option>
+            <option value="ULTRACEMCO.NS">ULTRACEMCO  -NSE</option>
+            <option value="HINDALCO.NS">HINDALCO  -NSE</option>
+            <option value="BAJAJFINSV.NS">BAJAJFINSV  -NSE</option>
+            <option value="TATACONSUM.NS">TATACONSUM  -NSE</option>
+            <option value="HCLTECH.NS">HCLTECH  -NSE</option>
+            <option value="DRREDDY.NS">DRREDDY  -NSE</option>
+            <option value="NESTLEIND.NS">NESTLEIND  -NSE</option>
+            <option value="TCS.NS">TCS  -NSE</option>
+            <option value="TITAN.NS">TITAN  -NSE</option>
+            <option value="SBIN.NS">SBIN  -NSE</option>
+            <!--  -->
+            <option value="COLPAL.BO">COLPAL  -BSE </option>
+            <option value="HDFCLIFE.BO">HDFCLIFE  -BSE </option>
+            <option value="TECHM.BO">TECHM  -BSE </option>
+            <option value="KOTAKBANK.BO">KOTAKBANK  -BSE </option>
+            <option value="APOLLOHOSP.BO">APOLLOHOSP  -BSE </option>
+            <option value="SAIL.BO">SAIL  -BSE </option>
+            <option value="INDIGO.BO">INDIGO  -BSE </option>
+            <option value="HAVELLS.BO">HAVELLS  -BSE </option>
+            <option value="BRITANNIA.BO">BRITANNIA  -BSE </option>
+            <option value="ICICIBANK.BO">ICICIBANK  -BSE </option>
+            <option value="JSWSTEEL.BO">JSWSTEEL  -BSE </option>
+            <option value="SHREECEM.BO">SHREECEM  -BSE </option>
+            <option value="DABUR.BO">DABUR  -BSE </option>
+            <option value="MARUTI.BO">MARUTI  -BSE </option>
+            <option value="WIPRO.BO">WIPRO  -BSE </option>
+            <option value="NTPC.BO">NTPC  -BSE </option>
+            <option value="SBIN.BO">SBIN  -BSE </option>
+            <option value="HCLTECH.BO">HCLTECH  -BSE </option>
+            <option value="TCS.BO">TCS  -BSE </option>
+            <option value="ITC.BO">ITC  -BSE </option>
+            <option value="RELIANCE.BO">RELIANCE  -BSE </option>
+            <option value="ASIANPAINT.BO">ASIANPAINT  -BSE </option>
+            <option value="NESTLEIND.BO">NESTLEIND  -BSE </option>
+            <option value="TITAN.BO">TITAN  -BSE </option>
+            <option value="ADANIGREEN.BO">ADANIGREEN  -BSE </option>
+        </select>
+        <br />
+
+        <select class="form-select form-select-lg mb-3" id="interval" aria-label=".form-select-lg example" name="interval">
+            <option selected>Select Interval</option>
+            <option value="1d">1 Day</option>
+            <option value="5d">5 Days</option>
+            <option value="1wk">1 Week</option>
+            <option value="1mo">1 Month</option>
+          </select>
+
+    </div>    
+    <button type="submit" class="btn btn-outline-primary" id="btn"><strong>Show Chart</strong></button> 
+    <!-- <button type="submit" class="btn_submit"><span id="btn">Show Chart</span></button> -->
+</form>
+</div>
+<div id="right">
+
+<div class="chart" id="chart">
+    {% if graph %} 
+        <div class="name">
+        {{ stock }}
+        </div>
+        {{ graph|safe }} 
+    {% else %}
+        <div class="else">
+        <img src="{% static 'favicon.png' %}" alt="Photo not loaded" width="850" height="600">
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+<footer class="footer mt-auto py-3 bg-light" id="footer">
+    <div class="container mx-auto" id="foot">
+      <span class="text-muted ">Market data provided by <a
+          href="https://pypi.org/project/yfinance/">yfinance</a></span><br>
+    </div>
+    <div class="container mx-auto" id="copyright">
+      <span class="text-muted ">&copy StockChart</span>
+    </div>
+  </footer>
+
+{% endblock %}

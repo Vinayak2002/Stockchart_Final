@@ -1,0 +1,110 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  {% block bootstrap %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  {% endblock %}
+
+  {% block css %}
+  <link href="{% static 'home.css' %}" rel="stylesheet">
+  {% endblock %}
+
+  {% block title %}
+  <title>Home</title>
+  {% endblock %}
+
+
+  <link rel="icon" href="{% static 'favicon.ico' %}">
+
+</head>
+
+<body>
+  {% block navbar %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'favicon.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top" href="/">
+        <strong>StockChart</strong>
+      </a>
+      {% block active %}
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/"><strong>Home</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login"><strong>Login</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup"><strong>Sign up</strong></a>
+        </li>
+
+      </ul>
+
+      <a href="demo"><button class="btn btn-outline-primary"><strong>Demo Chart</strong></button>
+      </a>
+      {% endblock %}
+    </div>
+  </nav>
+  {% endblock %}
+
+  {% block alert %}
+  <!-- <div class="alert alert-danger" role="alert"> -->
+  <!-- A simple danger alert—check it out! -->
+  <!-- </div> -->
+  {% endblock %}
+
+  {% block content %}
+
+  <div class="bg"></div>
+
+  <div class="card text-white bg-dark mx-auto" id="info">
+    <div class="card-body mx-auto">
+      <h3 class="card-title">How to use the website ?</h3>
+      <p class="card-text mx-auto" id="text">
+        The website shows the performance of stocks, in the form of <strong>Candlestick Chart</strong> <br>
+        Currently we provide only selected stocks<br>
+        You can select the <strong>Stock Symbol </strong>and the <strong>Interval</strong> in which you want the chart
+        to be plotted.
+        <br>
+        <br>
+        You have to first <a href="signup"><button class="btn btn-outline-primary"><strong>Sign up</strong></button>
+        </a> or <a href="login"><button class="btn btn-outline-primary"><strong>Login</strong></button> </a><br><br>
+
+        You can also view the demo chart here <a href="demo"><button class="btn btn-outline-primary"><strong>Demo
+              chart</strong></button> </a>
+
+      </p>
+
+      <h4>Contact Us:</h4>
+      <p id="name">
+        Vinayak Shrivastava (vinayak20100@iiitnr.edu.in)<br>
+        Amaan Ahmed Kazi (amaan20100@iiitnr.edu.in)<br>
+        Tushar Rusia (tushar20101@iiitnr.edu.in)
+      </p>
+      <p id="disclamer">This website is made using <a href="https://www.djangoproject.com/">Django Web Framework</a></p>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container mx-auto" id="foot">
+        <span class="text-muted ">Market data provided by <a
+            href="https://pypi.org/project/yfinance/">yfinance</a></span><br>
+      </div>
+      <div class="container mx-auto" id="copyright">
+        <span class="text-muted ">&copy StockChart</span>
+      </div>
+    </footer>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+body {
+    background-color:rgb(62, 62, 65);
+}
+#head{
+    max-width: 900px;color: white;padding-bottom: 100px;padding-top: 20px;
+}
+#stock{
+    max-width:300px;
+}
+#interval{
+    max-width:300px;
+}
+#left{
+    float: left;padding-left: 20px;
+    margin-bottom: 100px;
+}
+
+.message {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    background: lightgray;
+    color: red;
+    text-align: center;
+    border-radius: 0.5em;
+}
+
+#right{
+    float:right;padding-right: 220px;
+}
+#footer{
+    margin-left: -100%;
+    margin-right: -13.75em;
+    text-align: center;
+
+}
+#foot{
+    padding-left: 100px;
+    width: 350px;
+/*     text-align: center; */
+    
+}
+#copyright{
+    width: 200px;
+    padding-left: 90px; 
+}
+
+#chart .name {
+    background: red;
+    text-align: center;
+    font-size: 2em;
+}
+
+#chart {
+    margin-bottom: 100px;
+}
+form button {
+    margin-top: 25px;
+}
+
+.text-muted {
+    margin-right: -16em;
+}

@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'demo.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <title>Demo</title>
+{% endblock %}
+
+{% block active %}
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="/"><strong>Home</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login"><strong>Login</strong></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="signup"><strong>Sign up</strong></a>
+        </li>
+
+        </ul>
+        
+        <!-- <a href="demo"><button class="btn btn-outline-primary"><strong>Demo Chart</strong></button>
+        </a> -->
+{% endblock %}
+
+
+{% block alert %}
+    
+{% endblock %}
+
+{% block content %}
+
+<h1 class="display-3 mx-auto" id="head"><strong> Stock Performance Visualization</strong></h1>
+
+  
+</div>
+<div id="content" >
+
+    <img src="{% static 'demo.png' %}" alt="Photo not loaded" width="850" height="600">
+
+</div>
+  {% endblock %}
