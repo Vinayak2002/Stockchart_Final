@@ -55,7 +55,7 @@ ROOT_URLCONF = 'IT_Workshop_Final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')], # Linking the path to the static folder containing html files for webpages
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # Linking the path to the templates folder containing html files for webpages
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
