@@ -7,6 +7,8 @@ to be plotted.
 
 To access the functionality of the website, you have first signup and then login to the website.
 
+You can also view the demo chart with demo chart button in the Navigation Bar
+
 ## Home page -
 
 ![home1](https://user-images.githubusercontent.com/75775994/123047847-61814780-d41b-11eb-988a-8601ef898842.PNG)
@@ -22,3 +24,7 @@ To access the functionality of the website, you have first signup and then login
 
 ## Signup Page - 
 ![signup](https://user-images.githubusercontent.com/75775994/123047943-81b10680-d41b-11eb-94e5-c2a811398473.PNG)
+
+## Visual Page -
+![image](https://user-images.githubusercontent.com/76607467/123048756-61357c00-d41c-11eb-831f-dea490acb2e8.png)
+
