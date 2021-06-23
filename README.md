@@ -26,5 +26,6 @@ You can also view the demo chart with demo chart button in the Navigation Bar
 ![signup](https://user-images.githubusercontent.com/75775994/123047943-81b10680-d41b-11eb-94e5-c2a811398473.PNG)
 
 ## Visual Page -
-![image](https://user-images.githubusercontent.com/76607467/123048756-61357c00-d41c-11eb-831f-dea490acb2e8.png)
+![image](https://user-images.githubusercontent.com/76607467/123054969-05222600-d423-11eb-9f13-428a403c4899.png)
+
 
